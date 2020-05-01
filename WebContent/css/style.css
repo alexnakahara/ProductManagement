@@ -1,15 +1,14 @@
-.mainTitle{
+.mainTitle {
 	height: 120px;
-    margin-top: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #282a36;
-    color: #50fa7b;
-    border: 4px solid #ff79c6;
-    border-radius: 10px;
+	margin-top: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #282a36;
+	color: #50fa7b;
+	border: 4px solid #ff79c6;
+	border-radius: 10px;
 }
-
 
 .container-produtos__item {
 	display: grid;
@@ -29,11 +28,8 @@
 	font-size: 97px;
 }
 
-
-
-.item__group{
+.item__group {
 	display: grid;
 	grid-gap: 10px;
 	grid-template-columns: auto 1fr;
 }
-
