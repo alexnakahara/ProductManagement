@@ -18,48 +18,53 @@
 
 <script type="text/javascript">
 
-function onCadastrar(){
-	showGroups();
-	document.querySelector("#myForm").reset();
-	const inputAction = document.querySelector("#inputAction");
-	const titleModal = document.querySelector("#titleModal");
-	const inputCodigo = document.querySelector("#codigo");
-	inputAction.value='';
-	titleModal.innerHTML = 'Cadastrar Produto';
-	inputCodigo.placeholder = 'Digite um número identificador para seu produto';
-}
+	function onCadastrar(){
+		showGroups();
+		document.querySelector("#myForm").reset();
+		const inputAction = document.querySelector("#inputAction");
+		const titleModal = document.querySelector("#titleModal");
+		const inputCodigo = document.querySelector("#codigo");
+		inputAction.value='';
+		titleModal.innerHTML = 'Cadastrar Produto';
+		inputCodigo.placeholder = 'Digite um número identificador para seu produto';
+	}
 
-function onAlterar(){
-	showGroups();
-	document.querySelector("#myForm").reset();
-	const inputAction = document.querySelector("#inputAction");
-	const titleModal = document.querySelector("#titleModal");
-	const inputCodigo = document.querySelector("#codigo");
-	titleModal.innerHTML = 'Alterar Produto';
-	inputAction.value = 'alterar';
-	inputCodigo.placeholder = 'Digite o número identificador do seu produto';
-}
+	function onAlterar(){
+		showGroups();
+		document.querySelector("#myForm").reset();
+		const inputAction = document.querySelector("#inputAction");
+		const titleModal = document.querySelector("#titleModal");
+		const inputCodigo = document.querySelector("#codigo");
+		titleModal.innerHTML = 'Alterar Produto';
+		inputAction.value = 'alterar';
+		inputCodigo.placeholder = 'Digite o número identificador do seu produto';
+	}
 
-function onDeletar(){
-	hiddenGroups();
-	document.querySelector("#myForm").reset();
-	const inputAction = document.querySelector("#inputAction");
-	const titleModal = document.querySelector("#titleModal");
-	const inputCodigo = document.querySelector("#codigo");
-	titleModal.innerHTML = 'Deletar Produto';
-	inputAction.value = 'deletar';
-	inputCodigo.placeholder = 'Digite o número identificador do seu produto';
-}
+	function onDeletar(){
+		hiddenGroups();
+		document.querySelector("#myForm").reset();
+		const inputAction = document.querySelector("#inputAction");
+		const titleModal = document.querySelector("#titleModal");
+		const inputCodigo = document.querySelector("#codigo");
+		titleModal.innerHTML = 'Deletar Produto';
+		inputAction.value = 'deletar';
+		inputCodigo.placeholder = 'Digite o número identificador do seu produto';
+	}
 
 
-function hiddenGroups(){
-	const group = document.querySelectorAll(".normal");
-	group.forEach( i => i.style.display = 'none');
-}
+	function hiddenGroups(){
+		const group = document.querySelectorAll(".normal");
+		group.forEach( i => {
+			i.style.display = 'none'
+		});
+	}
 
-function showGroups(){
-	const group = document.querySelectorAll(".normal");
-	group.forEach( i => i.style.display = 'block');
+	function showGroups(){
+		const group = document.querySelectorAll(".normal");
+		group.forEach( i => {
+			i.style.display = 'block'
+		});
+	}
 }
 
 </script>
@@ -98,6 +103,19 @@ function showGroups(){
 	<div class="container">
 
 		<h2 class='mainTitle'>Bem vindo ao Gerenciador de Produtos</h2>
+
+
+		<form id="myForm2" method="get" action="ProdutoServlet.do">
+			<div class="form-group d-flex">
+				<input type="number" required id="codigo" class="form-control" min=1
+					name="codigoBusca"
+					placeholder="Digite o código do produto que deseja buscar">
+				<button type="submit" class="btn btn-primary">
+					<i class="fas fa-search"></i>
+				</button>
+			</div>
+		</form>
+
 		<div class="container-produtos">
 
 			<%
@@ -201,7 +219,7 @@ function showGroups(){
 						<div class="modal-footer d-flex justify-content-between">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Fechar</button>
-							<button type="submit" class="btn btn-primary">Salvar</button>
+							<button type="submit" class="btn btn-primary">Enviar</button>
 						</div>
 					</form>
 				</div>

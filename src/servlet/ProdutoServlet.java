@@ -23,8 +23,48 @@ public class ProdutoServlet extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		StringBuilder builder = new StringBuilder();
+		ProdutoService service = new ProdutoService();
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html; charset=UTF-8");
+	
+		int c = Integer.parseInt(request.getParameter("codigoBusca"));
+		
+		Produto p = service.consultar(c);
+		
+		builder.append("<html><head> <link rel=\"stylesheet\" href=\"css/style.css\"></head><body>");
+		builder.append("<h2 style='margin:16px'> Consulta de Produto</h2>");
+		builder.append("<div class='container-produtos__item mt-3'>" +
+		"<div class='logo'>" +
+			"<i class='fas fa-shopping-bag'></i>"+
+		"</div>" +
+		"<div class='item'>"+
+		"<div class='item__group'>"+
+			"Código:"+
+			"<div>" + p.getCodigo()+ "</div>"+
+		"</div>" +
+		"<div class='item__group'>" +
+			"Nome:" +
+			"<div>" + p.getNome() + "</div>" +
+		"</div>"+
+		"<div class='item__group'>"+
+			"Descrição:" +
+			"<div>"+p.getDescricao()+"></div>"+
+		"</div>"+
+		"<div class='item__group'>"+
+			"Estoque:"+
+			"<div>"+p.getEstoque()+"</div>"+
+		"</div>"+
+		"<div class='item__group'>"+
+			"Valor:"+
+			"<div>"+p.getValor()+"</div>"
+			+ "</div></div></div>");
+		
+		builder.append("<script src=\"https://kit.fontawesome.com/e71e2a1db7.js\"\r\n" + 
+				"crossorigin=\"anonymous\"></script></body></html>");
+		
+		out.print(builder.toString());
 	}
 
 
