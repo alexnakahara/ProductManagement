@@ -18,14 +18,10 @@ import service.ProdutoService;
 public class ProdutoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
     public ProdutoServlet() {
         // TODO Auto-generated constructor stub
     }
-
-
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
